@@ -1,0 +1,61 @@
+# Folders
+bin/
+obj/
+
+# Files
+*.log
+*.UserSettings
+
+# macOS
+.DS_Store
+
+# JetBrains Rider
+.idea/
+*.DotSettings*
+
+# MonoDevelop
+*.userprefs
+
+# Visual Studio
+.vs/
+.vsconfig
+
+# Visual Studio Code
+.vscode/
+
+# Unity folders
+Builds/
+Library/
+Logs/
+Temp/
+UserSettings/
+
+# Unity files
+*.csproj
+*.sln
+Packages/packages-lock.json
+
+# Unity Addressables
+Assets/AddressableAssetsData/*/*.bin*
+Assets/AddressableAssetsData/link.xml*
+
+# Unity CodeCoverage
+CodeCoverage/
+ProjectSettings/Packages/com.unity.testtools.codecoverage/
+
+# Unity Recordings
+Recordings/
+
+# Unity Scenes
+Assets/GlobalEntitiesDependencies*
+Assets/SceneDependencyCache*
+
+# Unity UI Toolkit
+UIElementsSchema/
+
+# Unity Visual Scripting
+Assets/Unity.VisualScripting.Generated*
+
+# Nuget for Unity
+Assets/Packages/
+Assets/Packages.meta

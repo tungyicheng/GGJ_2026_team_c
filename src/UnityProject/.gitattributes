@@ -1,0 +1,61 @@
+# Treat everything not text if not specified
+* -text
+
+# Human authored code
+*.cs text eol=lf
+*.json text eol=lf
+
+# ShaderLab
+*.cginc text eol=lf
+*.shader text eol=lf
+
+# Gradle property
+*.properties text eol=lf
+
+# AndroidManifest and other XML files
+*.xml text eol=lf
+
+# iOS plugin possible extensions
+*.h text eol=lf
+*.c text eol=lf
+*.cpp text eol=lf
+*.m text eol=lf
+*.mm text eol=lf
+
+# NeXTSTEP property list
+*.plist text eol=lf
+
+# GitLab and other services config
+*.yml text eol=lf
+*.toml text eol=lf
+
+# CSharp plugin
+.config/*.json -text
+
+# Generated CSharp file
+*.g.cs -text
+
+# Unity
+Assets/**/*.asmdef text eol=lf
+Assets/**/*.meta text eol=lf
+
+# Unity animation
+Assets/**/*.anim text eol=lf
+
+# Unity shader graph
+Assets/**/*.shadersubgraph text eol=lf
+
+# Unity linker
+Assets/**/link.xml -text
+
+# Unity plugins
+Assets/Plugins/**/* -text
+
+# nuget packages
+Assets/Packages/**/* -text
+
+# Unity samples
+Assets/Samples/**/* -text
+
+# Unity project settings json files
+ProjectSettings/**/*.json -text

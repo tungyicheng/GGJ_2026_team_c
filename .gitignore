@@ -1,0 +1,20 @@
+# Folders
+bin/
+obj/
+
+# macOS
+.DS_Store
+
+# JetBrains Rider
+.idea/
+*.DotSettings*
+
+# MonoDevelop
+*.userprefs
+
+# Visual Studio
+.vs/
+.vsconfig
+
+# Visual Studio Code
+.vscode/
