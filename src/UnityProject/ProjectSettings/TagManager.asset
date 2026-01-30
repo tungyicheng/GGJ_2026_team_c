@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 3
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Player
+  - Hurt
+  - Kill
+  - Mechanic
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Grid - Normal
+    uniqueID: 2757730749
+    locked: 0
+  - name: UI - Back
+    uniqueID: 617981727
+    locked: 0
+  - name: Character
+    uniqueID: 3680023067
+    locked: 0
+  - name: Grid - Blueprint
+    uniqueID: 3706019947
+    locked: 0
+  - name: UI - Top
+    uniqueID: 3553183183
+    locked: 0
+  m_RenderingLayers:
+  - Default
