@@ -1,8 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-public class MaskProjectile : MonoBehaviour
-{
+public class MaskProjectile : MonoBehaviour {
     public event Action<Vector3, GameObject> OnCollisionDetected;
     public event Action<GameObject> OnHitEnemy;
 
@@ -11,36 +10,36 @@ public class MaskProjectile : MonoBehaviour
     private bool hasHit = false;
     public bool isReturning = false;
 
-    private void Awake()
-    {
+    private void Awake() {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
         col.isTrigger = true;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
+    private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Player")) return;
 
-        if (!isReturning && !hasHit)
-        {
+        if (!isReturning && !hasHit) {
             hasHit = true;
             OnCollisionDetected?.Invoke(transform.position, other.gameObject);
-
-            rb.bodyType = RigidbodyType2D.Dynamic;
-            col.isTrigger = false;
+            Launch();
             rb.AddForce(Vector2.up * 2f, ForceMode2D.Impulse);
         }
 
-        if (other.CompareTag("Enemy"))
-        {
+        if (other.CompareTag("Enemy")) {
             OnHitEnemy?.Invoke(other.gameObject);
         }
     }
 
-    public void PrepareForRecall()
-    {
+    public void Launch(Vector3 velocity = default) {
+        rb.bodyType = RigidbodyType2D.Dynamic;
+        col.isTrigger = false;
+        rb.linearVelocity = velocity;
+        rb.angularVelocity = 0f;
+    }
+
+    public void PrepareForRecall() {
         isReturning = true;
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.linearVelocity = Vector2.zero;

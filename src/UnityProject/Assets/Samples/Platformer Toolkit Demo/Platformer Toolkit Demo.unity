@@ -5507,7 +5507,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 991
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5997,8 +5997,9 @@ MonoBehaviour:
   skullPrefab: {fileID: -1071082603319480477, guid: da8d37884abb06a4688fc23fe31c9fd0, type: 3}
   headSlot: {fileID: 7263076152953190653}
   throwDistance: 5
-  throwDuration: 1
+  throwDuration: 0.6
   recallDuration: 0.3
+  arcHeight: 0.6
   playerHeadSprite: {fileID: 5695719740683137816}
   hitstopDuration: 0.05
   shakeStrength: 0.2

@@ -13,6 +13,8 @@ public class SkullController : MonoBehaviour {
     public float throwDistance = 5f;
     public float throwDuration = 0.4f;
     public float recallDuration = 0.3f;
+    public float arcHeight = 6f;
+    public float speed = 10f;
 
     [Header("Visuals")]
     public GameObject playerHeadSprite;
@@ -41,36 +43,35 @@ public class SkullController : MonoBehaviour {
 
         activeSkull.OnCollisionDetected += HandleCollision;
         activeSkull.OnHitEnemy += HandleEnemyHit;
-        Vector3 targetPos = headSlot.position + new Vector3(transform.localScale.x * throwDistance, 0, 0);
+        Vector3 targetPos = transform.position + new Vector3(transform.localScale.x * throwDistance, 0, 0);
 
         activeSequence?.Kill();
         activeSequence = DOTween.Sequence();
 
         Transform activeSkullTransform = activeSkull.transform;
         float dir = transform.localScale.x;
+        var direction = Vector3.right * dir;
+        var velocity = direction * speed;
+        activeSkull.Launch(velocity);
 
-        float arcHeight = 0.6f;
-
-        activeSequence
-            .Join(activeSkullTransform.DOMoveX(targetPos.x, throwDuration).SetEase(Ease.OutCubic))
-            .Join(activeSkullTransform.DOMoveY(activeSkullTransform.position.y + arcHeight, throwDuration / 2)
-                .SetLoops(2, LoopType.Yoyo)
-                .SetEase(Ease.OutQuad))
-            .Join(activeSkullTransform
-                .DORotate(new Vector3(0, 0, -360 * 2 * dir), throwDuration, RotateMode.FastBeyond360)
-                .SetEase(Ease.OutCubic))
-            .Join(activeSkullTransform.DOScale(new Vector3(1.4f, 0.6f, 1f), throwDuration / 2)
-                .SetLoops(2, LoopType.Yoyo))
-            .OnComplete(() => {
-                activeSkullTransform.DOShakePosition(0.15f, 0.2f);
-                activeSequence = null;
-            });
+        // activeSequence
+        //     .Join(activeSkullTransform
+        //         .DORotate(new Vector3(0, 0, -360 * 2 * dir), throwDuration, RotateMode.FastBeyond360)
+        //         .SetEase(Ease.OutCubic)
+        //         .SetLoops(-1))
+        //     .Join(activeSkullTransform.DOScale(new Vector3(1.4f, 0.8f, 1f), throwDuration / 2));
     }
 
     private void HandleCollision(Vector3 pos, GameObject obj) {
         activeSequence?.Kill();
-        activeSequence = null;
-        mainCamera.transform.DOShakePosition(0.1f, 0.1f);
+        activeSequence = DOTween.Sequence();
+        Transform activeSkullTransform = activeSkull.transform;
+        activeSequence
+            // .Join(activeSkullTransform.DOScale(new Vector3(1f, 1f, 1f), throwDuration / 2))
+            .Join(mainCamera.transform.DOShakePosition(0.1f, 0.1f))
+            .OnComplete(() => {
+            activeSequence = null;
+        });
     }
 
     private void HandleEnemyHit(GameObject enemy) {
@@ -98,9 +99,11 @@ public class SkullController : MonoBehaviour {
         activeSequence?.Kill();
         activeSequence = DOTween.Sequence();
 
+        var originalScale = activeSkull.transform.localScale;
+        var targetScale = new Vector3(originalScale.x * 0.9f, originalScale.y * 0.9f, originalScale.z);
         activeSequence
-            .Append(activeSkull.transform.DOScale(new Vector3(0.8f, 1.2f, 1f), 0.1f))
-            .Append(activeSkull.transform.DOMove(headSlot.position, recallDuration).SetEase(Ease.InBack))
+            .Join(activeSkull.transform.DOScale(targetScale, 0.1f))
+            .Join(activeSkull.transform.DOMove(headSlot.position, recallDuration).SetEase(Ease.InBack))
             .OnComplete(() => {
                 Destroy(activeSkull.gameObject);
                 activeSkull = null;
