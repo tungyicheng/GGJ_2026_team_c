@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
@@ -20,8 +21,10 @@ public class SkullController : MonoBehaviour {
     public float shakeStrength = 0.2f;
 
     private MaskProjectile activeSkull;
-    private bool isHeadless;
+    public bool isHeadless;
     Sequence activeSequence;
+
+    public event Action<bool> OnHeadlessStateChanged;
 
     public void OnFire(InputAction.CallbackContext context) {
         if (context.performed) {
@@ -32,6 +35,7 @@ public class SkullController : MonoBehaviour {
 
     private void Throw() {
         isHeadless = true;
+        OnHeadlessStateChanged?.Invoke(isHeadless);
 
         activeSkull = Instantiate(skullPrefab, headSlot.position, Quaternion.identity);
 
@@ -94,6 +98,7 @@ public class SkullController : MonoBehaviour {
                 mainCamera.DOShakePosition(0.1f, 0.1f);
                 activeSequence = null;
                 isHeadless = false;
+                OnHeadlessStateChanged?.Invoke(isHeadless);
             });
     }
 }
