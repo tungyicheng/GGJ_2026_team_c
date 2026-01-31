@@ -1,0 +1,5 @@
+[*{Aspect,Asset,Authoring,Behaviour,Component,RenderFeature,Settings,System,EditorWindow}.cs]
+namespace_body = block_scoped
+indent_raw_literal_string = indent
+resharper_member_can_be_file_local_highlighting = none
+resharper_arrange_namespace_body_highlighting = warning
