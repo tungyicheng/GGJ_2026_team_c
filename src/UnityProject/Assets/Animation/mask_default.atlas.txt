@@ -1,4 +1,4 @@
-mask_default.png
+﻿mask_default.png
 size:219,744
 filter:Linear,Linear
 pma:true
