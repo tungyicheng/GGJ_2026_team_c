@@ -1,5 +1,21 @@
 <UXML xmlns:ui="UnityEngine.UIElements">
     <Style src="project://database/Assets/UI/VisualTrees/GameScreen/StyleSheet.uss" />
+    <ui:VisualElement name="controls-container">
+        <ui:VisualElement class="control-element">
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#a" class="control-input-glyph square"/>
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#d" class="control-input-glyph square"/>
+            <ui:Label text="MOVE" class="control-name" />
+        </ui:VisualElement>
+        <ui:VisualElement class="control-element">
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#space" class="control-input-glyph"/>
+            <ui:Label text="JUMP" class="control-name" />
+        </ui:VisualElement>
+        <ui:VisualElement class="control-element">
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#ml" class="control-input-glyph square"/>
+            <ui:Label text="THROW / BACK" class="control-name" />
+        </ui:VisualElement>
+        <ui:VisualElement name="main-menu-panel" class="panel" />
+    </ui:VisualElement>
     <ui:VisualElement name="pause-panel" class="panel">
         <ui:Label name="pause-label" text="PAUSED" />
         <ui:VisualElement name="menu-container">
