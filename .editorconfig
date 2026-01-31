@@ -1,0 +1,81 @@
+root = true
+
+[*.cs]
+brace_style = end_of_line
+empty_block_style = together_same_line
+
+default_private_modifier = implicit
+default_internal_modifier = implicit
+parentheses_redundancy_style = remove
+braces_for_ifelse = not_required
+braces_for_for = not_required
+braces_for_foreach = not_required
+braces_for_while = not_required
+braces_for_dowhile = not_required
+braces_for_using = not_required
+braces_for_lock = not_required
+braces_for_fixed = not_required
+braces_redundant = true
+method_or_operator_body = expression_body
+local_function_body = expression_body
+constructor_or_destructor_body = expression_body
+accessor_owner_body = expression_body
+namespace_body = file_scoped
+
+indent_braces_inside_statement_conditions = false
+align_multiline_binary_expressions_chain = false
+align_multiline_statement_conditions = false
+align_multiline_comments = false
+
+insert_final_newline = true
+place_field_attribute_on_same_line = if_owner_is_single_line
+new_line_before_else = false
+new_line_before_while = false
+new_line_before_catch = false
+new_line_before_finally = false
+wrap_before_binary_opsign = true
+
+resharper_convert_to_auto_property_highlighting = hint
+resharper_auto_property_can_be_made_get_only_global_highlighting = hint
+resharper_auto_property_can_be_made_get_only_local_highlighting = hint
+resharper_class_can_be_sealed_global_highlighting = hint
+resharper_class_can_be_sealed_local_highlighting = hint
+resharper_field_can_be_made_read_only_global_highlighting = hint
+resharper_field_can_be_made_read_only_local_highlighting = hint
+resharper_local_function_can_be_made_static_highlighting = hint
+resharper_member_can_be_private_global_highlighting = hint
+resharper_member_can_be_private_local_highlighting = hint
+resharper_member_can_be_protected_global_highlighting = hint
+resharper_member_can_be_protected_local_highlighting = hint
+resharper_member_can_be_made_static_global_highlighting = hint
+resharper_member_can_be_made_static_local_highlighting = hint
+resharper_member_can_be_internal_highlighting = hint
+resharper_property_can_be_made_init_only_global_highlighting = hint
+resharper_property_can_be_made_init_only_local_highlighting = hint
+resharper_struct_can_be_made_read_only_highlighting = hint
+resharper_struct_member_can_be_made_read_only_highlighting = hint
+resharper_member_can_be_file_local_highlighting = hint
+resharper_lambda_expression_can_be_made_static_highlighting = hint
+resharper_return_type_can_be_not_nullable_highlighting = hint
+
+resharper_can_simplify_is_assignable_from_highlighting = hint
+resharper_can_simplify_is_instance_of_type_highlighting = hint
+
+resharper_foreach_can_be_converted_to_query_using_another_get_enumerator_highlighting = hint
+resharper_for_can_be_converted_to_foreach_highlighting = hint
+resharper_foreach_can_be_partly_converted_to_query_using_another_get_enumerator_highlighting = hint
+resharper_loop_can_be_partly_converted_to_query_highlighting = hint
+resharper_loop_can_be_converted_to_query_highlighting = hint
+resharper_remove_redundant_braces_highlighting = hint
+resharper_arrange_namespace_body_highlighting = hint
+resharper_invert_if_highlighting = none
+
+resharper_introduce_optional_parameters_global_highlighting = hint
+resharper_introduce_optional_parameters_local_highlighting = hint
+
+[*.hlsl]
+brace_style = end_of_line
+
+[*.{asmdef,asmref,json,ruleset,uss,xml,yml}]
+indent_size = 2
+insert_final_newline = true

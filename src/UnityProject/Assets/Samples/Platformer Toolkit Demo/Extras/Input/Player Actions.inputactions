@@ -1,4 +1,5 @@
 {
+    "version": 1,
     "name": "Player Actions",
     "maps": [
         {
@@ -64,6 +65,15 @@
                     "type": "Button",
                     "id": "f1352a80-a7ab-4470-9f2b-635fe482ef58",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "7d19b8b9-7460-42fc-9c7a-70426c1707be",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -309,6 +319,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f5cec572-92d8-4e91-8b10-836f16ecfc1c",
+                    "path": "<Pointer>/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse;Touch",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c7bfdca-3958-486c-bc02-2836f5983fa0",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
