@@ -1,1 +1,3 @@
 @import url("unity-theme://default");
+
+@import url("project:/Assets/UI/Themes/fonts.uss");

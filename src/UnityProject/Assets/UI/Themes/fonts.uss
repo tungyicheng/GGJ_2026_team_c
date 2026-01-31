@@ -1,0 +1,3 @@
+:root {
+  -unity-font-definition: url("project:/Assets/UI/Fonts/GenYoGothic2/GenYoGothic2-R_Static.asset");
+}

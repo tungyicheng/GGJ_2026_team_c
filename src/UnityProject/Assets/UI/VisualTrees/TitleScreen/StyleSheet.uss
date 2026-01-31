@@ -1,0 +1,202 @@
+* {
+  font-size: 32px;
+  color: rgb(250, 250, 250);
+}
+
+.button {
+  width: 200px;
+  height: 64px;
+  margin: 4px 0;
+  background-color: transparent;
+  color: rgb(155, 155, 155);
+  border-width: 0;
+  transition: all 0.2s;
+  letter-spacing: 8px;
+}
+
+.button:hover {
+  scale: 1.1;
+  color: rgb(255, 255, 255);
+  -unity-font-style: bold;
+}
+
+.slider {
+  width: 600px;
+  height: 64px;
+}
+
+.slider #unity-tracker {
+  top: 40%;
+  bottom: 40%;
+  height: auto;
+  background-color: #444444;
+}
+
+.slider #unity-dragger {
+  width: 32px;
+  border-width: 0;
+  border-radius: 4px;
+}
+
+.slider #unity-text-field {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  bottom: 0;
+  width: 100px;
+}
+
+.slider #unity-text-input {
+  margin: 0 16px;
+  padding: 0;
+  background-color: transparent;
+  border-width: 0;
+}
+
+.slider .unity-text-element {
+  -unity-text-align: middle-center;
+}
+
+.option-element {
+  margin: 64px 0;
+}
+
+.option-column {
+
+}
+
+.option-name {
+  margin: 0;
+  padding: 0 0 16px 0;
+  color: #888888;
+  font-size: 24px;
+  letter-spacing: 32px;
+  -unity-text-align: middle-center;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: black;
+  padding: 5% 0 10% 0;
+}
+
+.panel .button {
+  position: absolute;
+  bottom: 10%;
+  align-self: center;
+}
+
+#root {
+  flex: 1;
+  background-color: black;
+}
+
+#logo {
+  height: 60%;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo Label {
+  font-size: 160px;
+  -unity-font-style: bold;
+}
+
+#menu-container {
+  align-items: center;
+  justify-content: center;
+}
+
+#start-panel {
+  display: none;
+}
+
+#options-panel {
+  align-items: center;
+  display: none;
+}
+
+#options-title {
+  -unity-text-align: middle-center;
+  margin: 0 0 64px 0;
+}
+
+#credits-panel {
+  display: none;
+}
+
+#credits-title {
+  -unity-text-align: middle-center;
+  margin: 0 0 64px 0;
+}
+
+#credits-scroll {
+  flex: 1;
+}
+
+.credit-element {
+  margin: 24px 0;
+}
+
+.credit-column {
+  flex-direction: column;
+}
+
+.credit-row {
+  flex-direction: row;
+}
+
+.credit-row Label {
+  flex: 1;
+}
+
+.credit-role {
+  margin: 0;
+  padding: 0 0 16px 0;
+  color: #888888;
+  font-size: 24px;
+  letter-spacing: 32px;
+}
+
+.credit-column .credit-role {
+  -unity-text-align: middle-center;
+}
+
+.credit-row .credit-role {
+  -unity-text-align: middle-right;
+}
+
+.credit-name {
+  margin: 0;
+  padding: 0 0 16px 0;
+  color: #ffffff;
+  font-size: 48px;
+  -unity-font-style: bold;
+}
+
+.credit-column .credit-name {
+  -unity-text-align: middle-center;
+}
+
+.credit-row .credit-name {
+  -unity-text-align: middle-left;
+}
+
+.credit-team-name {
+  margin: 72px 0 0 0;
+  color: #444444;
+  font-size: 16px;
+  -unity-text-align: lower-center;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.hidden {
+  display: none;
+}

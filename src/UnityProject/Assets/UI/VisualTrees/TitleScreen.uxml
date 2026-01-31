@@ -1,0 +1,47 @@
+<UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="project://database/Assets/UI/VisualTrees/TitleScreen/StyleSheet.uss" />
+    <ui:VisualElement name="root">
+        <ui:VisualElement name="logo">
+            <ui:Label text="MASK KILLER" />
+        </ui:VisualElement>
+        <ui:VisualElement name="menu-container">
+            <ui:Button text="START" name="start-button" class="button" />
+            <ui:Button text="OPTIONS" name="options-button" class="button" />
+            <ui:Button text="CREDITS" name="credits-button" class="button" />
+            <ui:Button text="QUIT" name="quit-button" class="button" />
+        </ui:VisualElement>
+        <ui:VisualElement name="options-panel" class="panel">
+            <ui:Label text="OPTIONS" name="options-title" />
+            <ui:VisualElement class="option-element option-column">
+                <ui:Label text="SOUND EFFECTS" class="option-name" />
+                <ui:SliderInt name="sound-effects-volume-slider" high-value="100" show-input-field="true" class="slider" />
+            </ui:VisualElement>
+            <ui:VisualElement class="option-element option-column">
+                <ui:Label text="MUSIC" class="option-name" />
+                <ui:SliderInt name="music-volume-slider" high-value="100" show-input-field="true" class="slider" />
+            </ui:VisualElement>
+            <ui:Button text="BACK" name="options-panel-back-button" class="button" />
+        </ui:VisualElement>
+        <ui:VisualElement name="credits-panel" class="panel">
+            <ui:Label text="CREDITS" name="credits-title" />
+            <ui:ScrollView name="credits-scroll">
+                <ui:VisualElement class="credit-element credit-column">
+                    <ui:Label text="DIRECTOR" class="credit-role" />
+                    <ui:Label text="CHIKA" class="credit-name" />
+                </ui:VisualElement>
+                <ui:VisualElement class="credit-element credit-column">
+                    <ui:Label text="ARTIST" class="credit-role" />
+                    <ui:Label text="FISH" class="credit-name" />
+                </ui:VisualElement>
+                <ui:VisualElement class="credit-element credit-column">
+                    <ui:Label text="PROGRAMMERS" class="credit-role" />
+                    <ui:Label text="BRAIN" class="credit-name" />
+                    <ui:Label text="董董" class="credit-name" />
+                    <ui:Label text="YD" class="credit-name" />
+                </ui:VisualElement>
+                <ui:Label text="Global Game Jam 2026 Taipei | Team C" class="credit-team-name" />
+            </ui:ScrollView>
+            <ui:Button text="BACK" name="credits-panel-back-button" class="button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</UXML>

@@ -1,0 +1,7 @@
+﻿{
+  "name": "PlatformerToolkitDemo",
+  "references": [
+    "Unity.Cinemachine",
+    "Unity.InputSystem"
+  ]
+}

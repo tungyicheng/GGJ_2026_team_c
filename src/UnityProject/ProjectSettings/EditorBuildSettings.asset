@@ -4,6 +4,15 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Boot.unity
+    guid: 29a34e1e25438e24aa81c0077fbb5106
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
+    guid: 3fbf2d789628cca4d8d75e75e5c595aa
+  - enabled: 1
+    path: Assets/Scenes/Game-merge-test-fixed.unity
+    guid: 94950d8442389fb4c803ac671796e796
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

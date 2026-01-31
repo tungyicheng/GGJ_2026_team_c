@@ -27,7 +27,7 @@ public class SkullController : MonoBehaviour {
     public event Action<bool> OnHeadlessStateChanged;
 
     public void OnFire(InputAction.CallbackContext context) {
-        if (context.performed) {
+        if (Time.timeScale > 0f && context.performed) {
             if (!isHeadless) Throw();
             else Recall();
         }

@@ -1,4 +1,4 @@
-[*{Aspect,Asset,Authoring,Behaviour,Component,RenderFeature,Settings,System,EditorWindow}.cs]
+[*.cs]
 namespace_body = block_scoped
 indent_raw_literal_string = indent
 resharper_member_can_be_file_local_highlighting = none
