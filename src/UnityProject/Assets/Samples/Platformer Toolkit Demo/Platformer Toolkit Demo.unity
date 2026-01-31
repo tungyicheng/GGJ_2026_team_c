@@ -5690,7 +5690,7 @@ GameObject:
   - component: {fileID: 640968033}
   m_Layer: 6
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5993,12 +5993,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de83620fdfb94035b727aff083213db5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SkullController
-  skullPrefab: {fileID: 9115199144145756220, guid: da8d37884abb06a4688fc23fe31c9fd0, type: 3}
+  mainCamera: {fileID: 519420031}
+  skullPrefab: {fileID: -1071082603319480477, guid: da8d37884abb06a4688fc23fe31c9fd0, type: 3}
   headSlot: {fileID: 7263076152953190653}
   throwDistance: 5
   throwDuration: 1
   recallDuration: 0.3
   playerHeadSprite: {fileID: 5695719740683137816}
+  hitstopDuration: 0.05
+  shakeStrength: 0.2
 --- !u!1 &709600652
 GameObject:
   m_ObjectHideFlags: 0

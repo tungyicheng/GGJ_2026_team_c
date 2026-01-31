@@ -1,10 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
 
 public class SkullController : MonoBehaviour {
+    public Camera mainCamera;
+
     [Header("Settings")]
-    public GameObject skullPrefab;
+    public MaskProjectile skullPrefab;
 
     public Transform headSlot;
     public float throwDistance = 5f;
@@ -14,7 +17,12 @@ public class SkullController : MonoBehaviour {
     [Header("Visuals")]
     public GameObject playerHeadSprite;
 
-    private GameObject activeSkull;
+    [Header("Juice")]
+    public float hitstopDuration = 0.05f;
+
+    public float shakeStrength = 0.2f;
+
+    private MaskProjectile activeSkull;
     private bool isHeadless;
     Sequence? activeSequence;
 
@@ -31,6 +39,8 @@ public class SkullController : MonoBehaviour {
 
         activeSkull = Instantiate(skullPrefab, headSlot.position, Quaternion.identity);
 
+        activeSkull.OnCollisionDetected += HandleCollision;
+        activeSkull.OnHitEnemy += HandleEnemyHit;
         Vector3 targetPos = headSlot.position + new Vector3(transform.localScale.x * throwDistance, 0, 0);
 
         activeSequence?.Kill();
@@ -57,7 +67,34 @@ public class SkullController : MonoBehaviour {
             });
     }
 
+    private void HandleCollision(Vector3 pos, GameObject obj) {
+        activeSequence?.Kill();
+        activeSequence = null;
+        mainCamera.transform.DOShakePosition(0.1f, 0.1f);
+    }
+
+    private void HandleEnemyHit(GameObject enemy) {
+        // enemy.GetComponent<EnemyHealth>()?.TakeDamage(1);
+
+        StartCoroutine(HitFeedback());
+    }
+
+    private IEnumerator HitFeedback() {
+        Time.timeScale = 0f;
+
+        mainCamera.transform.DOShakePosition(0.15f, shakeStrength);
+
+        yield return new WaitForSecondsRealtime(hitstopDuration);
+
+        Time.timeScale = 1f;
+    }
+
     private void Recall() {
+        if (activeSkull == null) return;
+        if (activeSkull.isReturning) return;
+        activeSkull.PrepareForRecall();
+        activeSkull.OnHitEnemy -= HandleEnemyHit;
+        activeSkull.OnHitEnemy += HandleEnemyHit;
         activeSequence?.Kill();
         activeSequence = DOTween.Sequence();
 
@@ -65,11 +102,11 @@ public class SkullController : MonoBehaviour {
             .Append(activeSkull.transform.DOScale(new Vector3(0.8f, 1.2f, 1f), 0.1f))
             .Append(activeSkull.transform.DOMove(headSlot.position, recallDuration).SetEase(Ease.InBack))
             .OnComplete(() => {
-                Destroy(activeSkull);
+                Destroy(activeSkull.gameObject);
                 activeSkull = null;
                 playerHeadSprite.SetActive(true);
                 transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0), 0.2f);
-                Camera.main.DOShakePosition(0.1f, 0.1f);
+                mainCamera.DOShakePosition(0.1f, 0.1f);
                 activeSequence = null;
                 isHeadless = false;
             });
