@@ -33,6 +33,8 @@ public class SpineController : MonoBehaviour {
     }
 
     public void OnMove(InputAction.CallbackContext context) {
+        // 正常處理移動輸入，不管是否在梯子上
+        // 玩家在梯子上也可以左右移動
         var moveInput = context.ReadValue<float>();
         var newIsMoving = Mathf.Abs(moveInput) > 0f;
         if (newIsMoving != isMoving) {
