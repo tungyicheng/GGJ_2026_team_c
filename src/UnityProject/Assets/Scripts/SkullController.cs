@@ -20,6 +20,12 @@ public class SkullController : MonoBehaviour {
 
     public float shakeStrength = 0.2f;
 
+    [Header("Teleport Settings")]
+    public float teleportDuration = 0.25f;
+    public Ease teleportEase = Ease.OutQuart;
+    public Collider2D collider;
+    private bool isBodyTeleporting;
+
     private MaskProjectile activeSkull;
     public bool isHeadless;
     Sequence activeSequence;
@@ -27,9 +33,17 @@ public class SkullController : MonoBehaviour {
     public event Action<bool> OnHeadlessStateChanged;
 
     public void OnFire(InputAction.CallbackContext context) {
-        if (Time.timeScale > 0f && context.performed) {
+        if (context.performed) {
             if (!isHeadless) Throw();
             else Recall();
+        }
+    }
+
+    public void OnTeleport(InputAction.CallbackContext context) {
+        if (context.performed && isHeadless && activeSkull) {
+            if (!activeSkull.isReturning && !isBodyTeleporting) {
+                TeleportToHead();
+            }
         }
     }
 
@@ -99,6 +113,37 @@ public class SkullController : MonoBehaviour {
                 activeSequence = null;
                 isHeadless = false;
                 OnHeadlessStateChanged?.Invoke(isHeadless);
+            });
+    }
+
+    private void TeleportToHead() {
+        isBodyTeleporting = true;
+
+        var rb = GetComponent<Rigidbody2D>();
+        float originalGravity = rb.gravityScale;
+        rb.gravityScale = 0;
+        collider.isTrigger = true;
+
+        activeSequence?.Kill();
+        activeSequence = DOTween.Sequence();
+
+        activeSequence
+            .Join(transform.DOMove(activeSkull.transform.position, teleportDuration).SetEase(teleportEase))
+            .Join(transform.DOPunchScale(new Vector3(-0.1f, 0.1f, 0), teleportDuration))
+            .OnComplete(() => {
+                rb.gravityScale = originalGravity;
+                collider.isTrigger = false;
+
+                Destroy(activeSkull.gameObject);
+                activeSkull = null;
+
+                isHeadless = false;
+                isBodyTeleporting = false;
+
+                OnHeadlessStateChanged?.Invoke(isHeadless);
+
+                mainCamera.DOShakePosition(0.1f, 0.2f);
+                transform.DOPunchScale(new Vector3(0.2f, -0.1f, 0), 0.2f);
             });
     }
 }
