@@ -14,6 +14,14 @@
             <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#ml" class="control-input-glyph square"/>
             <ui:Label text="THROW / BACK" class="control-name" />
         </ui:VisualElement>
+        <ui:VisualElement class="control-element">
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#mr" class="control-input-glyph square"/>
+            <ui:Label text="TELEPORT" class="control-name" />
+        </ui:VisualElement>
+        <ui:VisualElement class="control-element">
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#esc" class="control-input-glyph square"/>
+            <ui:Label text="PAUSE" class="control-name" />
+        </ui:VisualElement>
         <ui:VisualElement name="main-menu-panel" class="panel" />
     </ui:VisualElement>
     <ui:VisualElement name="pause-panel" class="panel">
