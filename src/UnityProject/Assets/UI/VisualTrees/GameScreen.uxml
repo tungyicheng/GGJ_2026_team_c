@@ -8,7 +8,12 @@
         </ui:VisualElement>
         <ui:VisualElement class="control-element">
             <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#space" class="control-input-glyph"/>
-            <ui:Label text="JUMP" class="control-name" />
+            <ui:Label text="JUMP / SWIM" class="control-name" />
+        </ui:VisualElement>
+        <ui:VisualElement class="control-element">
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#f" class="control-input-glyph square"/>
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#v" class="control-input-glyph square"/>
+            <ui:Label text="LADDER" class="control-name" />
         </ui:VisualElement>
         <ui:VisualElement class="control-element">
             <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#ml" class="control-input-glyph square"/>
@@ -20,6 +25,7 @@
         </ui:VisualElement>
         <ui:VisualElement class="control-element">
             <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#esc" class="control-input-glyph square"/>
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#q" class="control-input-glyph square"/>
             <ui:Label text="PAUSE" class="control-name" />
         </ui:VisualElement>
         <ui:VisualElement name="main-menu-panel" class="panel" />
