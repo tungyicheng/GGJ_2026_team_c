@@ -25,4 +25,4 @@ MonoBehaviour:
   _airBrake: 80
   _variableJH: 1
   _jumpCutoff: 5.23
-  _doubleJump: 2
+  _doubleJump: 1
