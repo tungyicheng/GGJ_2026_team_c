@@ -24,8 +24,23 @@
         </ui:VisualElement>
         <ui:VisualElement name="main-menu-panel" class="panel" />
     </ui:VisualElement>
+    <ui:VisualElement name="game-over-panel" class="panel">
+        <ui:Label name="game-over-label" text="GAME CLEAR" />
+        <ui:VisualElement name="timer-container">
+            <ui:Label text="CLEAN TIME" name="clear-time-title" />
+            <ui:Label text="00:00:00" name="clear-time" />
+        </ui:VisualElement>
+        <ui:VisualElement name="menu-container">
+            <ui:Button text="MAIN MENU" name="clear-time-main-menu-button" class="button" />
+        </ui:VisualElement>
+        <ui:VisualElement name="main-menu-panel" class="panel" />
+    </ui:VisualElement>
     <ui:VisualElement name="pause-panel" class="panel">
         <ui:Label name="pause-label" text="PAUSED" />
+        <ui:VisualElement name="timer-container">
+            <ui:Label text="TIME" name="pause-time-title" />
+            <ui:Label text="00:00:00" name="pause-time" />
+        </ui:VisualElement>
         <ui:VisualElement name="menu-container">
             <ui:Button text="RESUME" name="resume-button" class="button" />
             <ui:Button text="MAIN MENU" name="main-menu-button" class="button" />

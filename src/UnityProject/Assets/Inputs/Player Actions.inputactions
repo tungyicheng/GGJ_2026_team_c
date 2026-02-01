@@ -375,6 +375,17 @@
                 },
                 {
                     "name": "",
+                    "id": "28467118-5d54-48ff-a27b-9f7bc79caa9a",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "86a471d8-05d3-4ab1-844f-db396fb4df65",
                     "path": "<Gamepad>/start",
                     "interactions": "",

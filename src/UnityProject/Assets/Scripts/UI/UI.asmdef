@@ -2,6 +2,7 @@
   "name": "UI",
   "references": [
     "Audio",
+    "Core",
     "Unity.InputSystem"
   ]
 }
