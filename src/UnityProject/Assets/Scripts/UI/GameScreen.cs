@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System;
+using Scenes;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -13,31 +15,52 @@ namespace UI {
         public AudioSource ClickSound;
         public CursorController CursorController;
         public PlayerInput PlayerInput;
+        public TimerController timerController;
+        public PlayerEnterTrigger gameClearTrigger;
 
         VisualElement rootVisualElement;
         VisualElement pausePanel;
+        Label pauseTime;
         Button resumeButton;
         Button mainMenuButton;
         VisualElement mainMenuPanel;
+        VisualElement gameOverPanel;
+        Label clearTime;
+        Button clearTimeMainMenuButton;
 
         void OnEnable() {
             PauseActionReference.action.Enable();
             PauseActionReference.action.performed += OnPauseActionPerformed;
+            gameClearTrigger.OnPlayerEnter += OnPlayerEnterGameClearTrigger;
             if (!TryGetComponent(out UIDocument document)) return;
             rootVisualElement = document.rootVisualElement;
             pausePanel = rootVisualElement.Q<VisualElement>("pause-panel");
+            pauseTime = rootVisualElement.Q<Label>("pause-time");
             resumeButton = pausePanel.Q<Button>("resume-button");
             mainMenuButton = pausePanel.Q<Button>("main-menu-button");
             mainMenuPanel = rootVisualElement.Q<VisualElement>("main-menu-panel");
+            gameOverPanel = rootVisualElement.Q<VisualElement>("game-over-panel");
+            clearTime = rootVisualElement.Q<Label>("clear-time");
+            clearTimeMainMenuButton = rootVisualElement.Q<Button>("clear-time-main-menu-button");
             resumeButton.clicked += OnResumeButtonClicked;
             mainMenuButton.clicked += OnMainMenuButtonClicked;
+            clearTimeMainMenuButton.clicked += OnClearTimeMainMenuButtonClicked;
         }
 
         void OnDisable() {
             PauseActionReference.action.Disable();
             PauseActionReference.action.performed -= OnPauseActionPerformed;
+            gameClearTrigger.OnPlayerEnter -= OnPlayerEnterGameClearTrigger;
             resumeButton.clicked -= OnResumeButtonClicked;
             mainMenuButton.clicked -= OnMainMenuButtonClicked;
+            clearTimeMainMenuButton.clicked -= OnClearTimeMainMenuButtonClicked;
+        }
+
+        void Update() {
+            var time = TimeSpan.FromSeconds(timerController.ElapsedTime);
+            var timeText = $@"{time:mm\:ss\:ff}";
+            pauseTime.text = timeText;
+            clearTime.text = timeText;
         }
 
         void Pause() {
@@ -58,6 +81,15 @@ namespace UI {
                 .OnCompleted(() => pausePanel.style.display = DisplayStyle.None);
         }
 
+        public void GameOver() {
+            Time.timeScale = 0f;
+            CursorController.UnlockCursor();
+            pausePanel.style.display = DisplayStyle.None;
+            gameOverPanel.style.display = DisplayStyle.Flex;
+            gameOverPanel.experimental.animation.Start(0f, 1f, FadeDuration,
+                static (element, value) => element.style.opacity = value);
+        }
+
         void OnPauseActionPerformed(InputAction.CallbackContext context) {
             if (!ClickSound.isPlaying)
                 ClickSound.Play();
@@ -74,11 +106,21 @@ namespace UI {
         void OnMainMenuButtonClicked() {
             if (!ClickSound.isPlaying)
                 ClickSound.Play();
-            Time.timeScale = 1f;
             mainMenuPanel.style.display = DisplayStyle.Flex;
             mainMenuPanel.experimental.animation.Start(0f, 1f, FadeDuration,
                     static (element, value) => element.style.opacity = value)
-                .OnCompleted(() => SceneManager.LoadSceneAsync(MainMenuLoadBuildSceneIndex));
+                .OnCompleted(() => {
+                    SceneManager.LoadSceneAsync(MainMenuLoadBuildSceneIndex);
+                    Time.timeScale = 1f;
+                });
+        }
+
+        void OnClearTimeMainMenuButtonClicked() {
+            OnMainMenuButtonClicked();
+        }
+
+        void OnPlayerEnterGameClearTrigger() {
+            GameOver();
         }
     }
 }

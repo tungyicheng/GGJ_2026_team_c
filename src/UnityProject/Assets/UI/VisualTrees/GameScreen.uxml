@@ -14,10 +14,33 @@
             <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#ml" class="control-input-glyph square"/>
             <ui:Label text="THROW / BACK" class="control-name" />
         </ui:VisualElement>
+        <ui:VisualElement class="control-element">
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#mr" class="control-input-glyph square"/>
+            <ui:Label text="TELEPORT" class="control-name" />
+        </ui:VisualElement>
+        <ui:VisualElement class="control-element">
+            <ui:Image source="project://database/Assets/Input%20Sprites%20for%20TextMesh%20Pro/all_input.png#esc" class="control-input-glyph square"/>
+            <ui:Label text="PAUSE" class="control-name" />
+        </ui:VisualElement>
+        <ui:VisualElement name="main-menu-panel" class="panel" />
+    </ui:VisualElement>
+    <ui:VisualElement name="game-over-panel" class="panel">
+        <ui:Label name="game-over-label" text="GAME CLEAR" />
+        <ui:VisualElement name="timer-container">
+            <ui:Label text="CLEAN TIME" name="clear-time-title" />
+            <ui:Label text="00:00:00" name="clear-time" />
+        </ui:VisualElement>
+        <ui:VisualElement name="menu-container">
+            <ui:Button text="MAIN MENU" name="clear-time-main-menu-button" class="button" />
+        </ui:VisualElement>
         <ui:VisualElement name="main-menu-panel" class="panel" />
     </ui:VisualElement>
     <ui:VisualElement name="pause-panel" class="panel">
         <ui:Label name="pause-label" text="PAUSED" />
+        <ui:VisualElement name="timer-container">
+            <ui:Label text="TIME" name="pause-time-title" />
+            <ui:Label text="00:00:00" name="pause-time" />
+        </ui:VisualElement>
         <ui:VisualElement name="menu-container">
             <ui:Button text="RESUME" name="resume-button" class="button" />
             <ui:Button text="MAIN MENU" name="main-menu-button" class="button" />

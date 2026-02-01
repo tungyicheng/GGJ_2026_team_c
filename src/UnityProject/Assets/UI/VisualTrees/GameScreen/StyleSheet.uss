@@ -62,16 +62,42 @@
 
 #pause-panel {
   display: none;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0.95);
 }
 
+#game-over-panel {
+  display: none;
+  align-items: center;
+}
+
+#timer-container {
+  flex-direction: row;
+  margin: 0 0 128px 0;
+}
+
+#pause-time-title,
+#clear-time-title {
+  margin: 0 16px 0 0;
+}
+
+#pause-time,
+#clear-time {
+  margin: 0;
+}
+
+#game-over-label,
 #pause-label {
-  height: 90%;
+  height: 70%;
   align-items: center;
   justify-content: center;
   font-size: 160px;
   -unity-font-style: bold;
   -unity-text-align: middle-center;
+}
+
+#game-over-label {
+  color: limegreen;
 }
 
 #menu-container {
