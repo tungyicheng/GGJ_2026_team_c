@@ -161,6 +161,7 @@
 
 #menu-container {
   margin: 436px 0 0 680px;
+  height: 600px;
   align-items: center;
   justify-content: center;
 }

@@ -16,6 +16,7 @@ namespace UI {
         Button startButton;
         Button optionsButton;
         Button creditsButton;
+        VisualElement quitButtonContainer;
         Button quitButton;
         VisualElement optionsPanel;
         SliderInt soundEffectsVolumeSlider;
@@ -30,6 +31,7 @@ namespace UI {
             startButton = rootVisualElement.Q<Button>("start-button");
             optionsButton = rootVisualElement.Q<Button>("options-button");
             creditsButton = rootVisualElement.Q<Button>("credits-button");
+            quitButtonContainer = rootVisualElement.Q<VisualElement>("quit-button-container");
             quitButton = rootVisualElement.Q<Button>("quit-button");
             optionsPanel = rootVisualElement.Q<VisualElement>("options-panel");
             optionsPanelBackButton = optionsPanel.Q<Button>("options-panel-back-button");
@@ -41,7 +43,7 @@ namespace UI {
             optionsButton.clicked += OnOptionsButtonClicked;
             creditsButton.clicked += OnCreditsButtonClicked;
 #if UNITY_WEBGL
-            quitButton.style.display = DisplayStyle.None;
+            quitButtonContainer.style.display = DisplayStyle.None;
 #endif
             quitButton.clicked += OnQuitButtonClicked;
             soundEffectsVolumeSlider.value = AudioController.SoundEffectsVolume;
