@@ -81,6 +81,19 @@ public class Ladder : MonoBehaviour
             Debug.Log("[Ladder] 按下 F 鍵，往上爬");
             ClimbUp();
         }
+        if (playerInRange && Keyboard.current != null && Keyboard.current.vKey.wasPressedThisFrame)
+        {
+            Debug.Log("[Ladder] 按下 V 鍵，往下爬");
+            ClimbDown();
+        }
+    }
+
+    private void ClimbDown()
+    {
+        if (playerTransform == null || playerRigidbody == null) return;
+
+        Vector3 targetPosition = playerTransform.position + new Vector3(0f, -tileHeight, 0f);
+        playerRigidbody.MovePosition(targetPosition);
     }
 
     private void ClimbUp()
