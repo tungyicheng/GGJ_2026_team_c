@@ -7,7 +7,7 @@ using UnityEngine;
 public class Spikes2 : MonoBehaviour
 {
     [Header("傳送目標座標")]
-    public Vector2 respawnPosition = new Vector2(100f, 50f);
+    public Vector2 respawnPosition = new Vector2(215f, 32f);
 
     private void OnTriggerEnter2D(Collider2D other)
     {
