@@ -1,20 +1,26 @@
 <UXML xmlns:ui="UnityEngine.UIElements">
     <Style src="project://database/Assets/UI/VisualTrees/TitleScreen/StyleSheet.uss" />
     <ui:VisualElement name="root">
-        <ui:VisualElement name="logo">
-            <ui:Label text="MASK KILLER" />
-        </ui:VisualElement>
         <ui:VisualElement name="menu-container">
-            <ui:Button text="START" name="start-button" class="button" />
-            <ui:Button text="OPTIONS" name="options-button" class="button" />
-            <ui:Button text="CREDITS" name="credits-button" class="button" />
-            <ui:Button text="QUIT" name="quit-button" class="button" />
+            <ui:VisualElement name="start-button-container">
+                <ui:Button name="start-button" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="options-button-container">
+                <ui:Button name="options-button" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="credits-button-container">
+                <ui:Button name="credits-button" class="button" />
+            </ui:VisualElement>
+            <ui:VisualElement name="quit-button-container">
+                <ui:Button name="quit-button" class="button" />
+            </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="options-panel" class="panel">
             <ui:Label text="OPTIONS" name="options-title" />
             <ui:VisualElement class="option-element option-column">
                 <ui:Label text="SOUND EFFECTS" class="option-name" />
-                <ui:SliderInt name="sound-effects-volume-slider" high-value="100" show-input-field="true" class="slider" />
+                <ui:SliderInt name="sound-effects-volume-slider" high-value="100" show-input-field="true"
+                              class="slider" />
             </ui:VisualElement>
             <ui:VisualElement class="option-element option-column">
                 <ui:Label text="MUSIC" class="option-name" />

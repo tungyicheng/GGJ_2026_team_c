@@ -4,7 +4,7 @@
 }
 
 .button {
-  width: 200px;
+  width: 320px;
   height: 64px;
   margin: 4px 0;
   background-color: transparent;
@@ -12,6 +12,7 @@
   border-width: 0;
   transition: all 0.2s;
   letter-spacing: 8px;
+  -unity-background-scale-mode: scale-to-fit;
 }
 
 .button:hover {
@@ -19,6 +20,55 @@
   color: rgb(255, 255, 255);
   -unity-font-style: bold;
 }
+
+#start-button-container {
+  width: 360px;
+  padding: 20px 0;
+  align-items: center;
+}
+
+#start-button {
+  width: 343px;
+  height: 102px;
+  background-image: url("project://database/Assets/Art/Pic/img_start.png");
+}
+
+#options-button-container {
+  width: 360px;
+  padding: 25px 0;
+  align-items: center;
+}
+
+#options-button {
+  width: 295px;
+  height: 50px;
+  background-image: url("project://database/Assets/Art/Pic/img_options.png");
+}
+
+#credits-button-container {
+  width: 360px;
+  padding: 19px 0;
+  align-items: center;
+}
+
+#credits-button {
+  width: 262px;
+  height: 50px;
+  background-image: url("project://database/Assets/Art/Pic/img_credits.png");
+}
+
+#quit-button-container {
+  width: 360px;
+  padding: 19px 0;
+  align-items: center;
+}
+
+#quit-button {
+  width: 162px;
+  height: 56px;
+  background-image: url("project://database/Assets/Art/Pic/img_quit.png");
+}
+
 
 .slider {
   width: 600px;
@@ -93,7 +143,7 @@
 #root {
   flex: 1;
   background-color: black;
-  background-image: url("project://database/Assets/Art/Pic/maskman_start.jpg");
+  background-image: url("project://database/Assets/Art/Pic/maskman_start_03.jpg");
   -unity-background-scale-mode: scale-to-fit;
 }
 
@@ -110,6 +160,7 @@
 }
 
 #menu-container {
+  margin: 436px 0 0 680px;
   align-items: center;
   justify-content: center;
 }
