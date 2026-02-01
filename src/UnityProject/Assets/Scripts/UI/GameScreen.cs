@@ -27,6 +27,7 @@ namespace UI {
         VisualElement gameOverPanel;
         Label clearTime;
         Button clearTimeMainMenuButton;
+        bool isGameOver;
 
         void OnEnable() {
             PauseActionReference.action.Enable();
@@ -82,6 +83,7 @@ namespace UI {
         }
 
         public void GameOver() {
+            isGameOver = true;
             Time.timeScale = 0f;
             CursorController.UnlockCursor();
             pausePanel.style.display = DisplayStyle.None;
@@ -91,6 +93,7 @@ namespace UI {
         }
 
         void OnPauseActionPerformed(InputAction.CallbackContext context) {
+            if (isGameOver) return;
             if (!ClickSound.isPlaying)
                 ClickSound.Play();
             if (Time.timeScale > 0f) Pause();
