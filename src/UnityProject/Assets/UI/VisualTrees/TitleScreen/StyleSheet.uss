@@ -93,6 +93,8 @@
 #root {
   flex: 1;
   background-color: black;
+  background-image: url("project://database/Assets/Art/Pic/maskman_start.jpg");
+  -unity-background-scale-mode: scale-to-fit;
 }
 
 #logo {
@@ -102,6 +104,7 @@
 }
 
 #logo Label {
+  display: none;
   font-size: 160px;
   -unity-font-style: bold;
 }

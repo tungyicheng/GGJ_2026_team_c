@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Title.unity
     guid: 3fbf2d789628cca4d8d75e75e5c595aa
   - enabled: 1
-    path: Assets/Scenes/Game-merge-test-fixed.unity
-    guid: 94950d8442389fb4c803ac671796e796
+    path: Assets/Scenes/Game.unity
+    guid: a06c04dff8955bc4faf93f0d8e5ad1c8
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
